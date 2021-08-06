@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+
+ <div id="headerMain">
+     <div id="header">
+    {% include ('module/mainmenu.html.twig') %}
+
+    <div class="row logo">
+
+        <div class="col-md-8">
+            <h2 class="text-left"><a href="/">
+                    Перелік призначених до розгляду справ<br>
+                     Cуддя {%if judje.getSUDDOCL%} {{ judje.getSUDDOCL}} {%endif%}
+                </a> </h2>
+
+        </div>
+
+        <div class="col-md-3 calendar_top">
+            <div class="info_calendar">Бажаєте мати календар судових засідань у смартфоні</div>
+            <div ><a href="/calendar_info">Демонстраційна версія для суддів</a></div>
+        </div>
+        <div class="col-md-1">  </div>
+
+    </div>
+
+     </div>
+</div>
+ <div class="blok_menu">
+    <ul class="menu-two">
+        <li><a href="{{ url('page_rozklad_sudi',{'id':judje.getIDSUDDOCL}) }}">Всі</a></li>
+       <li><a href="{{ url('page_rozklad_sudi',{'id':judje.getIDSUDDOCL}) }}?sort=day">Сьогодні</a></li>
+        <li><a href="{{ url('page_rozklad_sudi',{'id':judje.getIDSUDDOCL}) }}?sort=week">На цьому тижні</a></li>
+        <li><a href="{{ url('page_rozklad_sudi',{'id':judje.getIDSUDDOCL}) }}?sort=nextWeek">На наступному тижні</a></li>
+        </ul>
+ </div>
+ {% if error %}
+<br><br>
+     <h3>{{ error }}</h3>
+ {% else %}
+    <div class="row calendar">
+        <ul class="menu-calendar">
+            <li><a id='leftM' href="javascript:switchTabs('left')" class="current">Призначені до розгляду у судовому засіданні</a></li>
+            <li><a id='rightM' href="javascript:switchTabs('right')" >Призначені до розгляду в письмовому провадженні</a></li>
+
+        </ul>
+
+    </div>
+<div id='leftTab' class="row">
+
+    <div class="col-xs-12 col-md-6">
+
+        <div id="blok1_r">
+            Кількість справ - {{ sortedCount }}
+            <table cellpadding="6">
+                <tr>
+                    <td class="roz_header" colspan="4">Справи, у яких визначений як суддя-доповідач</td>
+                </tr>
+
+                 {% for key,row in sorted %}
+                <tr>
+
+                <td class="roz_top ">{{ row.szall.getSZ()|date('d.m.') }}</td>
+                        <td class="roz_top">{{ row.szall.getSZTIME()|date('H:i') }}</td>
+                        <td class="roz_num roz_top"> {{ row.szall.getDECLINNUMBER }}</td>
+                        <td rowspan="3" class="roz_top roz_toptr">{{row.szall.getSTORONU|raw}}</td>
+
+                </tr>
+                <tr>
+                    <td colspan="3" class="roz_top"></td>
+                </tr>
+                <tr  class="roz_toptr" >
+                    {% if row.reletedJ %}
+                        <td colspan="3" class="roz_top">
+                            Учасники колегії<br>
+                        {% for szall in row.reletedJ %}
+
+                            <b>{{ szall.SUDKOL}}</b>
+                        {% endfor %}
+                        </td>
+                    {% endif %}
+                </tr>
+
+                 {% endfor %}
+            </table>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+
+        <div id="blok2_r">
+            Кількість справ - {{ judjeMemberCount }}
+    <table cellpadding="6">
+
+                <tr>
+                    <td class="roz_header" colspan="4">Справи, у  яких визначений членом колегії</td>
+                </tr>
+                <tr>
+                    {% for szall in judjeMember %}
+                        <td class="roz_top">{{ szall.getSZ()|date('d.m.') }}</td>
+                        <td class="roz_top">{{ szall.getSZTIME()|date('H:i') }}</td>
+                        <td class="roz_num roz_top">{{ szall.getDECLINNUMBER }}</td>
+                        <td rowspan="3" class="roz_top roz_toptr">{{ szall.getSTORONU|raw}}</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="roz_top">Суддя - доповідач<br><b>{{ szall.getSUDDOCL}}</b></td>
+
+                <tr>
+                    <td colspan="3" class="roz_top roz_toptr"></td>
+                </tr>
+                <tr>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+   <div id='rightTab' class="row hidden">
+
+
+       <div class="col-xs-12 col-md-6">
+
+           <div id="blok1_r">
+               Кількість справ - {{ sortedCount2 }}
+               <table cellpadding="6">
+                   <tr>
+                       <td class="roz_header" colspan="4">Справи, у яких визначений як суддя-доповідач</td>
+                   </tr>
+
+                   {% for key,row in sorted2 %}
+                       <tr>
+
+                           <td class="roz_top ">{{ row.szall.getSZ()|date('d.m.') }}</td>
+                           <td class="roz_top"></td>
+                           <td class="roz_num roz_top"> {{ row.szall.getDECLINNUMBER }}</td>
+                           <td rowspan="3" class="roz_top roz_toptr">{{row.szall.getSTORONU|raw}}</td>
+
+                       </tr>
+                       <tr>
+                           <td colspan="3" class="roz_top"></td>
+                       </tr>
+                       <tr  class="roz_toptr" >
+                           {% if row.reletedJ %}
+                               <td colspan="3" class="roz_top">
+                                   Учасники колегії<br>
+                                   {% for szall in row.reletedJ %}
+
+                                       <b>{{ szall.SUDKOL}}</b>
+                                   {% endfor %}
+                               </td>
+                           {% endif %}
+                       </tr>
+
+                   {% endfor %}
+               </table>
+
+           </div>
+       </div>
+       <div class="col-xs-12 col-md-6">
+           <div id="blok2_r">
+               Кількість справ - {{ judjeMemberCount2 }}
+               <table cellpadding="6">
+
+                   <tr>
+                       <td class="roz_header" colspan="4">Справи, у  яких визначений членом колегії</td>
+                   </tr>
+                   <tr>
+                       {% for szall in judjeMember2 %}
+                       <td class="roz_top">{{ szall.getPISMOVO()|date('d.m.') }}</td>
+                       <td class="roz_top"></td>
+                       <td class="roz_num roz_top">{{ szall.getDECLINNUMBER }}</td>
+                       <td rowspan="3" class="roz_top roz_toptr">{{ szall.getSTORONU|raw}}</td>
+                   </tr>
+                   <tr>
+                       <td colspan="3" class="roz_top">Суддя - доповідач<br><b>{{ szall.getSUDDOCL}}</b></td>
+
+                   <tr>
+                       <td colspan="3" class="roz_top roz_toptr"></td>
+                   </tr>
+                   <tr>
+                   </tr>
+                   {% endfor %}
+               </table>
+
+
+           </div>
+       </div>
+    </div>
+
+{% endif %}
+
+ <a href="#"  style="background-image:url('{{ asset('public/img/icon_top.png') }}')"  class="scrollup"  >Наверх</a>
+</body>
+{% include ('module/footer.html.twig') %}
+</html>

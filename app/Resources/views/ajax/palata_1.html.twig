@@ -1,0 +1,40 @@
+<div class="col-md-12">
+    <br>
+
+    <table id="tableSud">
+        <tr>
+            <th class="tdTitle"></th>
+            <th class="tdNumber">Передано на розгляд</th>
+            <th class="tdNumber">Закінчено розгляд</th>
+            <th class="tdNumber">На розгляді</th>
+            <th class="tdNumber_n">Питання про відкриття провадження не вирішено [8 днів]</th>
+        </tr>
+        <tr class="trSud">
+            <td class="tdTitle">Загальна кількість</td>
+            <td class="tdNumbern">{{ totalSum }}</td>
+            <td class="tdNumbern">{{ totalSum_roz_p1 }}</td>
+            <td class="tdNumbern">{{ totalSum-totalSum_roz_p1 }}</td>
+            <td class="tdNumber_r">{{totalSum_ojidaetsya }}</td>
+        </tr>
+
+        {% for row in judgeList %}
+            <tr class="trSud">
+                {% for key,item in row %}
+
+                    {% if key == 'sum_row_1' %}
+                        <td class="tdTitle">{{ item.getRealName }}</td>
+                        <td class="tdNumbern">{{ item.sumByWeight }}</td>
+                    {% elseif key == 'sum_row_2' %}
+                        <td class="tdNumbern">{{ item.sumByWeight }}</td>
+                    {% elseif key == 'sum_row_3' %}
+                        <td class="tdNumbern">{{ item }}</td>
+                    {% elseif key == 'sum_row_4' %}
+                        <td class="tdNumbern">{{ item }}</td>
+                    {% endif %}
+
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    {% include ('module/header.html.twig') %}
+<body>
+<div id="headerMain">
+    <div id="header">
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="logo">
+
+        <div class="col-md-9">
+            <h2 class="text-left"><a href="/">
+                    Перелік призначених до розгляду справ
+                </a> </h2>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="roz_jud"></div>
+        </div>
+
+    </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div id="blok1_r">
+            <table cellpadding="6" class="roz_palata">
+                    {% for row2 in sorted %}
+                <tr>
+                    <td>{{ row2.szall.getSZ()|date('d.m.') }}</td>
+                    <td>{{ row2.szall.getSZTIME()|date('H:i') }}</td>
+                    <td class="roz_num "> {{ row2.szall.getDECLINNUMBER }}</td>
+                    <td> {{ row2.szall.getCAUSEGNUM }}</td>
+                    <td rowspan="3" class="roz_top roz_bottr">{{row2.szall.getSTORONU|raw}}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Суддя - доповідач <b>{{ row2.szall.SUDDOCL }}</b></td>
+                </tr>
+                <tr class="roz_bottr">
+                    {% if row2.reletedJ %}
+                        <td colspan="4">
+                            {% for szall in row2.reletedJ %}
+                                <b>{{ szall.SUDKOL}}</b>
+                            {% endfor %}
+                        </td>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% include ('module/footer.html.twig') %}
+
+</body>
+</html>

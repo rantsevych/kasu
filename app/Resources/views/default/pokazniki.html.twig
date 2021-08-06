@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+<div class="container-fluid">
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+        <div class="col-md-6">
+            <h1 class="text-left"><a href="/">Показники</a> </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="online_doc">
+                <div class="online_doc_ifo"></div>
+                <h1> <a href="https://cutt.ly/xfZZ6q5" target="_blank">Показники розподілу процесуальних документів</a></h1>
+                <div class="online_doc_about">Оновлюється щоденно до 9:35</div>
+            </div>
+
+<br>
+
+            <div id="online_doc">
+                <div class="online_doc_ifo">Інформативна таблиця</div>
+                <h1> <a href="https://cutt.ly/ypAGL1j" target="_blank">Інформація щодо проваджень</a></h1>
+                <div class="online_doc_about">Підготовлено для врахування в роботі, оновлюється у вівторок та п’ятницю до 12.00</div>
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+    <br>
+
+
+    {% include ('module/footer.html.twig') %}
+
+</body>
+</html>

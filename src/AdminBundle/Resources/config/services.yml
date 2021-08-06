@@ -1,0 +1,9 @@
+services:
+    authListener:
+        class: AdminBundle\EventListener\AuthListener
+        arguments: ["@service_container"]
+        tags:
+          - {name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+    admin_menu:
+        class: AdminBundle\Service\Menu\SupportMenu
+        arguments: ["@router"]

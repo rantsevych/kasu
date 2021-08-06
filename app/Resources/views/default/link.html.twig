@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+<div class="container-fluid">
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+
+        <div class="col-md-6">
+            <h1 class="text-left"><a href="/">Корисні посилання</a> </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6>
+
+
+
+            <div class="main">
+
+                <div id="online_doc">
+                    {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+                    <h4><a href="http://reestr.court.gov.ua/" target="_blank">Реєстр судових рішень</a></h4>
+                    <div class="online_doc_about">Єдиного державного реєстру судових рішень</div>
+                </div><br>
+
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4> <a href="https://register.minjust.gov.ua/" target="_blank">Реєстр речових прав</a></h4>
+            <div class="online_doc_about">Державний реєстр речових прав на нерухоме майно</div>
+        </div><br>
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="https://usr.minjust.gov.ua/ua/orderdocument" target="_blank">Реєстр юридичних осіб</a></h4>
+            <div class="online_doc_about">Єдиний державний реєстр юридичних осіб, фізичних осіб-підприємців та громадських формувань</div>
+        </div><br>
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="/court_adress">Адреси судів</a></h4>
+
+        </div><br>
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="https://docs.google.com/forms/d/e/1FAIpQLSeS5DSQBdQqwfYz6LOy5xiICFlRkS80NaE9fgVuXmWTfuBsgw/viewform " target="_blank">Форма повідомлення про поштову адресу Gmail</a></h4>
+
+        </div><br>
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="https://docs.google.com/spreadsheets/d/15PMOzv7xPGW5ft9cKMwkJTPP11xEwQhJhomV25ofPCo/edit#gid=2117408311 " target="_blank">Реєстр поштових адрес Gmail</a></h4>
+
+        </div><br>
+
+
+
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="https://www.czo.gov.ua/sign" target="_blank">Підпис даних кваліфікованим електронним підписом онлайн</a></h4>
+            <div class="online_doc_about">Створення кваліфікованого електронного підпису</div>
+        </div><br>
+
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="https://docs.google.com/spreadsheets/d/1Hef1P6hqX-vS-X_ypgjf9w8gTzkAr5VN/edit#gid=1899456086" target="_blank">Список типів документів</a></h4>
+
+        </div><br>
+
+            </div>
+
+
+            <script>
+                $(document).ready(function () {
+
+                    $('.panel-heading').click(function () {
+                        $(this).toggleClass('in').next().slideToggle();
+                        $('.panel-heading').not(this).removeClass('in').next().slideUp();
+                    });
+
+                });
+            </script>
+
+</div>
+    </div>
+    {% include ('module/footer.html.twig') %}
+
+</body>
+</html>

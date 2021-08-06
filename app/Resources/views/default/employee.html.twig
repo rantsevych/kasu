@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+<div class="container-fluid">
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+
+        <div class="col-md-6">
+            <h1 class="text-left"><a href="/">Новопризначеним працівникам</a> </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6>
+
+
+
+            <div class="main">
+
+        <div id="online_doc">
+            {#<div class="online_doc_ifo">Інформативна таблиця</div>#}
+            <h4><a href="http://scs.scourt.local/index.php/novachkam" target="_blank">Інформаційна довідка</a></h4>
+            <div class="online_doc_about">Інформація новоназначеним працівникам </div>
+        </div><br>
+
+
+
+
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('.panel-heading').click(function () {
+                $(this).toggleClass('in').next().slideToggle();
+                $('.panel-heading').not(this).removeClass('in').next().slideUp();
+            });
+
+        });
+    </script>
+
+</div>
+</div>
+{% include ('module/footer.html.twig') %}
+
+</body>
+</html>

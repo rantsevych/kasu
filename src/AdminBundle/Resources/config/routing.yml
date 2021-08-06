@@ -1,0 +1,14 @@
+admin_login:
+      path: /console/login
+      defaults: { _controller: AdminBundle:Admin:Login}
+admin_logout:
+      path: /console/logout
+      defaults: { _controller: AdminBundle:Admin:Logout}
+admin_add_news:
+      path: /console/add-news
+      defaults: { _controller: AdminBundle:Admin:AddNews}
+admin_edit_news:
+      path: /console/edit-news/
+      defaults: { _controller: AdminBundle:Admin:editNews}
+      requirements:
+               id: \d+

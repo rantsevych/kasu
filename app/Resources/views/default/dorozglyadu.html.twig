@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+<div class="container-fluid">
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+
+        <div class="col-md-10">
+            <h2 class="text-left"><a href="/">
+                    Список справ, призначених до розгляду <br> як судом першої та апеляційної інстанції
+                    на наступні 7 днів
+                </a> </h2>
+        </div>
+
+        <div class="col-md-2">
+            <div class="actualnist">Станом на {{ currentTime }}</div>
+        </div>
+        <div class="priznachenia"> Призначено справ – {{ total }}
+
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+ <p></p>
+
+        <table id="tableSud">
+            <thead>
+                <tr>
+                    <th class="tdHead">Дата слухання</th>
+                    <th class="tdHead">Час слухання</th>
+                    <th class="tdHead">Дата письмового провадження</th>
+                    <th class="tdHead">№ провадження</th>
+                    <th class="tdHead">№ справи</th>
+                    <th class="tdHead">Суддя-доповідач</th>
+                    <th class="tdHead">Учасники справи</th>
+                </tr>
+            </thead>
+             <tbody>
+
+            {% for itemSz in dorozglyadu %}
+                <tr class="trSud">
+
+                            <td class="tdNumbert">{{ itemSz.getSZ()|date('d.m.') }}</td>
+                            <td class="tdNumbert">
+                                {% if itemSz.getSZTIME()|date('H:i')  == '00:00' %}
+                                -
+                                {% else %}
+                                    {{ itemSz.getSZTIME()|date('H:i') }}
+                                {% endif %}
+                                </td>
+                            <td class="tdNumbertp">{{ itemSz.getPISMENNO()}}</td>
+                            <td class="tdNumberds">{{ itemSz.getDECLINNUMBER()}}</td>
+                            <td class="tdNumberds">{{ itemSz.getCAUSEGNUM()}}</td>
+                            <td class="tdNumberds">{{ itemSz.getREALNAME()}}</td>
+                            <td class="tdNumberdy">{{ itemSz.getSTORONU()|raw}}</td>
+                </tr>
+            {% endfor %}
+             </tbody>
+        </table>
+
+    </div>
+
+<script>$(document).ready(function() {
+$("#tableSud").tablesorter(
+        {sortList: [[0,0], [1,0], [2,0]]} );});</script>
+
+{% include ('module/footer.html.twig') %}
+
+
+</body>
+</html>

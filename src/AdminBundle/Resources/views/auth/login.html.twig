@@ -1,0 +1,26 @@
+{% extends 'AdminBundle:layouts:base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/style/admin/login.css') }}">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+{% endblock %}
+    {% block body %}
+    <div class="main">
+        <div class="login">
+            <div class="login-top">
+                <img src="{{ asset('assets/images/admin/p.png') }}" alt="Image">
+            </div>
+            <h1>Панель администратора</h1>
+            <div class="login-bottom">
+                <form method="post">
+                    {% if loginRes is defined and loginRes  == false %}
+                        <p style="color: red">You have entered incorrect data<br>
+                            Stay where you are, we already sent agents for you.</p>
+                    {% endif %}
+                    <input name="login" type="text" placeholder="Логин" required="required">
+                    <input name="pass" type="password" class="password" placeholder="Пароль" required="required">
+                    <input type="submit" value="Вхід">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Статистика Верховного Суду{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <meta name="description" content="KAS">
+    <meta name="author" content="KAS">
+    <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('public/css/style.css') }}" />
+    <script src="{{ asset('public/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('public/js/scripts.js') }}"></script>
+    <script src="{{ asset('public/js/main.js') }}"></script>
+    <script src="{{ asset('public/js/custom.js') }}"></script>
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row logo">
+
+        <div class="col-md-10 ">
+            <h2 class="text-left"><a href="/">
+                    Загальні показники надходження та розгляду адміністративних справ
+                </a> </h2>
+            <div class="back"><a href="/zmist">Перейти до змісту </a>  </div>
+        </div>
+        <div class="col-md-2">
+            <div class="actualnist">Станом на {{ currentTime }}</div>
+        </div>
+        </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <a id="sud" href="javascript:getContent(0)" class="btn btn-primary but_menu" role="button" aria-pressed="true">СУД</a>
+        </div>
+        <div class="col-md-3">
+            <a href="javascript:getContent(1)" class="btn btn-primary but_menu" role="button" aria-pressed="true">Перша палата</a>
+        </div>
+        <div class="col-md-3">
+            <a href="javascript:getContent(2)" class="btn btn-primary but_menu" role="button" aria-pressed="true">Друга палата</a>
+        </div>
+        <div class="col-md-3">
+            <a href="javascript:getContent(3)" class="btn btn-primary but_menu" role="button" aria-pressed="true">Третя палата</a>
+        </div>
+    </div>
+    <div id="content" class="row">
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center footer">
+            &copy; Відділ забезпечення функціонування автоматизованої системи та електронного суду
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'AdminBundle:layouts:base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/style/admin/style.css') }}?ver=1.0.1">
+{% endblock %}
+{% block body %}
+    {% block support_body %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+    <html>
+    {% include ('module/header.html.twig') %}
+<body>
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+        <div class="col-md-6">
+            <h1 class="text-left"><a href="/">Новини</a> </h1>
+        </div>
+    </div>
+
+        <div class="block-content">
+            <div class="row">
+                {% for page in pages %}
+                        <div class="col-md-4">
+                            <div class="jumbotron card card-block">
+                                <h2>{{ page.title }}</h2>
+                                <small><i>{{ page.category}}</i></small>
+                                <small><i>{{ page.created|date('d-m-Y') }}</i></small>
+                                <p>
+                                    {{ page.description }}
+                                </p>
+                                <p>
+                                    {% set path = path('page_view', {'id' : page.id }) %}
+                                    <a class="news_read" href="{{ path }}">Детальніше</a>
+                                </p>
+                            </div>
+                        </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+    {% include ('module/footer.html.twig') %}
+
+</body>
+ </html>
+
+
+
+

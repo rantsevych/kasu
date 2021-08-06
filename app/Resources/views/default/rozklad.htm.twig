@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+
+<div id="headerMain">
+    <div id="header">
+    {% include ('module/mainmenu.html.twig') %}
+        <div class="logo">
+            <div class="col-md-12">
+                <h2 class="text-left"><a href="/">Перелік призначених до розгляду справ</a> </h2>
+            </div>
+         {#   <div class="col-md-12">
+                <div class="two_h">Інформація про відсутність судді в день розгляду справи:
+                <span class="two_h"><a href="https://drive.google.com/file/d/1NzMsy9TD1rcYF0NEcQzmxqIOnvyeuArW/view" target="_blank">електронна таблиця</a></span>
+                <span class="two_h">|</span>
+                <span class="two_h"><a href="https://drive.google.com/file/d/1Zv7mcBIjZVP26Uh-QFsL3NUKPCNYnEp-/view" target="_blank">PDF файл</a></span>
+
+                </div>
+                <div class="two_h">Інформація щодо не робочих днів суддів в період від 1 до 11 днів з моменту надходження процесуального документа:
+                    <span class="two_h"><a href="https://drive.google.com/file/d/1Sgjs9nekousDrpGCag_Ta_ilyASha8s2/view" target="_blank">електронна таблиця</a></span>
+
+
+                </div>
+            </div>#}
+
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div id="blok1_r">
+			
+			 <a class="zagolovok" href="allcalendar/1"><b>Судова палата з розгляду справ щодо податків, зборів та інших обов’язкових платежів</b></a>
+			
+                <ul id="navbar_r" >
+
+                       
+                    {% for row in allPalats %}
+
+                        {% if row.cause.getPalataStringNameToInt() == 1 %}
+                        <li><a href="{{ url('page_rozklad_sudi',{'id':row.cause.getId}) }}" >{{ row.cause.getREALNAME }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div id="blok2_r">
+                     <a class="zagolovok" href="allcalendar/2"><b>Судова палата з розгляду справ щодо захисту соціальних прав</b></a></h5>
+                <ul id="navbar_r" >
+                   
+                    {% for row in allPalats %}
+
+                        {% if row.cause.getPalataStringNameToInt() == 2 %}
+                            <li><a  href="{{ url('page_rozklad_sudi',{'id':row.cause.getId}) }}" >{{ row.cause.getREALNAME }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div id="blok3_r">
+			
+			<a class="zagolovok" href="allcalendar/3"><b>Судова палата з розгляду справ щодо виборчого процесу та референдуму, а також захисту політичних прав громадян</b></a>
+                <ul id="navbar_r" >
+                    
+                    {% for row in allPalats %}
+                        {% if row.cause.getPalataStringNameToInt() == 3 %}
+                            <li><a  href="{{ url('page_rozklad_sudi',{'id':row.cause.getId}) }}" >{{ row.cause.getREALNAME }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+<a href="#"  style="background-image:url('{{ asset('public/img/icon_top.png') }}')"  class="scrollup"  >Наверх</a>
+{% include ('module/footer.html.twig') %}
+
+</body>
+</html>

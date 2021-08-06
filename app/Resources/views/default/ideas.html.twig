@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+
+        <div class="col-md-6">
+            <h1 class="text-left"><a href="/">
+                    Ідеї
+           </a> </h1>
+        </div>
+    </div>
+
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeF8UG_q2jEz_kj1KpCqITXmNjtL37JHd4YhZWKbNsTK9qE7g/viewform?embedded=true" width="1000" height="2500" frameborder="0" marginheight="0" marginwidth="0">Завантаження...</iframe>
+
+    <div class="media">
+        <div class="media-left">
+            <img src="img_avatar1.png" class="media-object" style="width:45px">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Имя пользователя1 <small><i>Запись от Октябрь 20, 2019</i></small></h4>
+            <p>Здесь текст, отзыв или комментарий</p>
+
+            <!-- Первый уровень вложенности-->
+            <div class="media">
+                <div class="media-left">
+                    <img src="img_avatar2.png" class="media-object" style="width:45px">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Имя пользователя 2 <small><i>Запись от Октябрь 20, 2019</i></small></h4>
+                    <p>Ответил пользователю 1, Здесь текст, отзыв или комментарий</p>
+                    <!-- Второй уровень вложенности -->
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="img_avatar3.png" class="media-object" style="width:45px">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Имя пользователя 3 <small><i>Запись от Октябрь 20, 2019</i></small></h4>
+                            <p>Ответил пользователю 2, Здесь текст, отзыв или комментарий</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% include ('module/footer.html.twig') %}
+
+</body>
+</html>

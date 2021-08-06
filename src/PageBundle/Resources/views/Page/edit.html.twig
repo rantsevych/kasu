@@ -1,0 +1,9 @@
+{% for item in menu %}
+    <a class="{{ item.class }}" href="{{ item.url }}">{{ item.title }}</a>
+{% endfor %}
+    <div class="block block--page-edit">
+        <div class="block-content">
+            {{ form(form) }}
+        </div>
+    </div>
+

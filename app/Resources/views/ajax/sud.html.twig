@@ -1,0 +1,45 @@
+<div class="col-md-12">
+<br>
+
+<table id="tableSud">
+    <tr >
+        <th class="tdTitle"></th>
+        <th class="tdNumber">Передано на розгляд</th>
+        <th class="tdNumber">Закінчено розгляд</th>
+        <th class="tdNumber">На розгляді</th>
+        <th class="tdNumber_n">Питання про відкриття провадження не вирішено [8 днів]</th>
+    </tr>
+    <tr class="trSud">
+        <td class="tdTitleBold">Касаційний адміністративний суд</td>
+        <td class="tdNumberBold">{{ totalSum_sud }}</td>
+        <td class="tdNumberBold">{{ totalSum_sud_2}}</td>
+        <td class="tdNumberBold">{{ totalSum_sud-totalSum_sud_2 }}</td>
+        <td class="tdNumberBold">{{ojidaetsya}}</td>
+    </tr>
+    <tr class="trSud">
+        <td class="tdTitle">Судова палата з розгляду справ
+            щодо податків, зборів та інших
+            обов’язкових платежів</td>
+        <td class="tdNumbern">{{ totalSum_p1 }}</td>
+        <td class="tdNumbern">{{ totalSum_p1_2 }}</td>
+        <td class="tdNumbern">{{ totalSum_p1-totalSum_p1_2}}</td>
+        <td class="tdNumbern">{{ojidaetsya_p1}}</td>
+    </tr>
+    <tr class="trSud">
+        <td class="tdTitle">Cудова палата з розгляду справ щодо захисту соціальних прав</td>
+        <td class="tdNumbern">{{ totalSum_p2}}</td>
+        <td class="tdNumbern">{{ totalSum_p2_2}}</td>
+        <td class="tdNumbern">{{ totalSum_p2-totalSum_p2_2}}</td>
+        <td class="tdNumbern">{{ojidaetsya_p2}}</td>
+    </tr>
+
+    <tr class="trSud">
+        <td class="tdTitle">Судова палата для розгляду справ щодо виборчого процесу та референдуму, а також захисту політичних прав громадян</td>
+        <td class="tdNumbern">{{ totalSum_p3 }}</td>
+        <td class="tdNumbern">{{ totalSum_p3_2}}</td>
+        <td class="tdNumbern">{{ totalSum_p3-totalSum_p3_2}}</td>
+        <td class="tdNumbern">{{ojidaetsya_p3}}</td>
+    </tr>
+</table>
+
+    </div>

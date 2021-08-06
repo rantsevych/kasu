@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+<div id="headerMain">
+    <div id="header">
+        {% include ('module/mainmenu.html.twig') %}
+        <div class="logo">
+            <div class="col-md-12">
+                <h2 class="text-left"><a href="/">XXX</a> </h2>
+            </div>
+            {#<div class="col-md-2">#}
+            {#<div class="actualnist">Станом на {{ currentTime }}</div>#}
+            {#</div>#}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div id="blok1_r">
+            <ul id="navbar_r" >
+
+                <li><a href="#"><b>Тест</b></a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div id="blok2_r">
+
+            <ul id="navbar_r" >
+                <li><a href="#"><b>Тест 2</b></a></li>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+</div>
+
+{% include ('module/footer.html.twig') %}
+
+</body>
+</html>

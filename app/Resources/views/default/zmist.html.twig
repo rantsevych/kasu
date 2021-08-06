@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+
+<div class="container-fluid">
+    {% include ('module/mainmenu.html.twig') %}
+    <div class="row logo">
+
+        <div class="col-md-6">
+            <h1 class="text-left"><a href="/">
+                    Зміст
+           </a> </h1>
+
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h2>Показники</h2>
+            <ul id="navbar" >
+                <li><a href="/nadhodzenia">Загальні показники надходження та розгляду адміністративних справ (в розробці)</a></li>
+                {#<li><a href="#">Показники надходження та розгляду справ поданих безпосередньо до Касаційного адміністративного суду (створюється)  </a></li>#}
+
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>Перелік проваджень</h2>
+            <ul id="navbar" >
+                <li><a href="/rozklad">Перелік призначених до розгляду справ</a></li>
+
+                <li><a href="/dorozglyadu">Список справ, призначених до розгляду
+                        як судом першої та апеляційної інстанції
+                        на наступні 7 днів</a></li>
+            </ul>
+        </div>
+    </div>
+    {% include ('module/footer.html.twig') %}
+
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRW1gF3BQZpRbkUa3LRwukOEcbElag6bYpT1hGjWxVgayV0ZHs0tAwhCIScm6GVrAAwcjTj5NY9XtYc/pubhtml?gid=2116861043&amp;single=true&amp;widget=true&amp;headers=false" width="468" height="468"></iframe>
+
+</body>
+</html>

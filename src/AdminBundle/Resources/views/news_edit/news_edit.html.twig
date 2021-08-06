@@ -1,0 +1,22 @@
+{% extends 'AdminBundle:layouts:base.support.html.twig' %}
+{% block support_body %}
+    <div class="main">
+        <div id="preloader" style="display: none">
+            <div id="status">&nbsp;</div>
+        </div>
+        {% if id > 0 %}
+            <div class="page-header">
+                <h1 data-menu="cLogin"><small>Edit news</small></h1>
+            </div>
+            {{ form(form) }}
+        {% else %}
+            <div class="page-header">
+                <h1 data-menu="cLogin"><small>All news</small></h1>
+            </div>
+            {% for item in allNews %}
+                <a href="{{ url('admin_edit_news',{'id':item.getId}) }}">{{ item.getTitle }}</a><a href="{{ url('admin_edit_news',{'id':item.getId,'del':1}) }}" class="btn btn-danger">X</a><br>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% if menu is defined and menu != false %}
+<ul class="nav nav-tabs">
+    {% for key, row in menu %}
+                 <li role="presentation" class="{{ row.class }}">
+                 <a {% if row.event is defined %} onclick="{{ row.event }}" {% endif %}  href="{{ row.link }}">{{ row.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}

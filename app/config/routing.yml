@@ -1,0 +1,58 @@
+main_page:
+    path: /
+    defaults:  { _controller: AppBundle:Default:index, }
+page_zmist:
+    path: /zmist
+    defaults:  { _controller: AppBundle:Default:zmist, }
+page_nadhodzenia:
+    path: /nadhodzenia
+    defaults:  { _controller: AppBundle:Default:nadhodzenia, }
+ajax_get_content:
+   path: /get-content
+   defaults:  { _controller: AppBundle:Ajax:getContent, }
+page_dorozglyadu:
+   path: /dorozglyadu
+   defaults:  { _controller: AppBundle:Default:dorozglyadu, }
+page_rozklad:
+   path: /rozklad
+   defaults:  { _controller: AppBundle:Default:rozklad, }
+page_rozklad_sudi:
+   path: /calendar/{id}
+   defaults: { _controller: AppBundle:Default:calendar, }
+page_rozklad_palaty:
+   path: /allcalendar/{id}
+   defaults: { _controller: AppBundle:Default:allcalendar, }
+page_onlinedoc:
+   path: /onlinedoc
+   defaults:  { _controller: AppBundle:Default:onlinedoc, }
+page_pokazniki:
+      path: /pokazniki
+      defaults:  { _controller: AppBundle:Default:pokazniki, }
+page:
+  resource: '@PageBundle/Resources/config/routing.yml'
+Term:
+  resource: '@TermBundle/Resources/config/routing.yml'
+page_court_adress:
+   path: /court_adress
+   defaults:  { _controller: AppBundle:Default:court_adress, }
+page_ideas:
+   path: /ideas
+   defaults:  { _controller: AppBundle:Default:ideas, }
+page_instrukciya:
+   path: /instrukciya
+   defaults:  { _controller: AppBundle:Default:instrukciya, }
+page_link:
+   path: /link
+   defaults:  { _controller: AppBundle:Default:link, }
+page_adress:
+   path: /adress
+   defaults:  { _controller: AppBundle:Default:adress, }
+page_employee:
+   path: /employee
+   defaults:  { _controller: AppBundle:Default:employee, }
+page_calendar_info:
+  path: /calendar_info
+  defaults:  { _controller: AppBundle:Default:calendar_info, }
+page_zahody:
+  path: /zahody
+  defaults:  { _controller: AppBundle:Default:zahody, }

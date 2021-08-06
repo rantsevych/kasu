@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block seo %}
+        {% include('AdminBundle:layouts:seo.html.twig') %}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {% include('AdminBundle:layouts:styles.html.twig') %}
+    {% endblock %}
+</head>
+
+<body>
+{% include 'AdminBundle:menu:menu.html.twig'%}
+{#{% include '@Admin/popup/inform_popup.html.twig' %}#}
+{% block body %}
+{% endblock %}
+</body>
+{% block javascripts %}
+    {% include('AdminBundle:layouts:scripts.html.twig') %}
+{% endblock %}
+</html>

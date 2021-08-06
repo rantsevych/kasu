@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+{% include ('module/header.html.twig') %}
+<body>
+{% include ('module/mainmenu.html.twig') %}
+<div class="row logo">
+    <div class="col-md-6">
+        <h1 class="text-left">{{ page.title }}</h1>
+    </div>
+</div>
+        <div class="block-content">
+            <div class="field field-category">{{ page.category.name }}</div>
+            <div class="field field-created">{{ page.created|date('d-m-Y') }}</div><p>
+            <div class="field field-body">{{ page.body|raw }}</div>
+        </div>
+<br><br><br>
+{% include ('module/footer.html.twig') %}
+
+</body>
+</html>
+
+

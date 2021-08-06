@@ -1,0 +1,14 @@
+{% extends 'menu.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <h1>{{ totalSum }}</h1>
+            {% for CauseAssign in list %}
+                {{ CauseAssign.getRealName }} :  sum  = {{  CauseAssign.getSumByWeight }} <br>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
